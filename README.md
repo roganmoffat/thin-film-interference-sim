@@ -5,7 +5,7 @@ Threlte, and Three.js. Adjust the optical properties of the surrounding media
 and the film to explore how thickness, wavelength, and refractive index affect
 the simulation.
 
-The simulation is based on this video: : (Youtube Link)[https://www.youtube.com/watch?v=xjMjWtntm9k]
+The simulation is based on this video: https://www.youtube.com/watch?v=xjMjWtntm9k
 
 ## Features
 
