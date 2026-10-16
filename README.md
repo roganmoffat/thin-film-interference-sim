@@ -1,56 +1,117 @@
-# sv
+# Thin Film Interference Simulator
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+An interactive 3D visualization of thin-film interference built with SvelteKit,
+Threlte, and Three.js. Adjust the optical properties of the surrounding
+media and film to explore how film thickness, wavelength, and refractive index
+affect the model.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Real-time 3D scene rendered with Three.js through Threlte.
+- Orbit, pan, and zoom controls for inspecting the scene.
+- Adjustable refractive indices for the outside medium, thin film, and inside
+  medium.
+- Adjustable film thickness, wavelength, and interference order (`m`).
+- Animated wave visualization.
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Getting started
 
-To recreate this project with the same configuration:
+### Prerequisites
 
-```sh
-# recreate this project
-npx sv@1.1.1 create --template minimal --types ts --add prettier eslint vitest="usages:unit,component" playwright="demo:no" tailwindcss="plugins:typography" --install npm thin-film-sim
-```
+- Node.js (the current LTS release is recommended)
+- npm
 
-## Adding features
+### Installation
 
-Add features to your project with `sv add`:
-
-```sh
-npx sv add
-```
-
-For example, to add Tailwind CSS:
+Clone the repository and install its dependencies:
 
 ```sh
-npx sv add tailwindcss
+git clone https://github.com/roganmoffat/thin-film-interference-sim.git
+cd thin-film-interference-sim
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Run the development server
 
 ```sh
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+Open the local URL printed by Vite, usually
+[`http://localhost:5173`](http://localhost:5173).
 
-To create a production version of your app:
+## Using the simulator
+
+Use the controls on the right side of the page to change:
+
+| Parameter | Description | Units |
+| --- | --- | --- |
+| `n_outside` | Refractive index of the medium before the film | — |
+| `n_film` | Refractive index of the thin film | — |
+| `n_inside` | Refractive index of the medium after the film | — |
+| `thickness` | Thickness of the thin film | nm |
+| `wavelength` | Wavelength of the displayed wave | nm |
+| `m_value` | Interference order shown on the film | — |
+
+Drag the scene to rotate the camera, and use the scroll wheel to zoom.
+
+## Available commands
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Create a production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run check` | Run Svelte and TypeScript checks |
+| `npm run lint` | Check formatting and lint rules |
+| `npm run format` | Format the project with Prettier |
+| `npm run test:unit` | Run unit and component tests with Vitest |
+| `npm run test:e2e` | Run end-to-end tests with Playwright |
+| `npm test` | Run unit tests and end-to-end tests |
+
+Before submitting changes, run:
 
 ```sh
-npm run build
+npm run check
+npm run lint
+npm test
 ```
 
-You can preview the production build with `npm run preview`.
+## Project structure
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```text
+src/
+├── lib/
+│   ├── Scene.svelte              # 3D scene and optical media
+│   └── components/               # Scene geometry and GLSL shaders
+└── routes/
+    ├── +page.svelte              # Simulator controls and page layout
+    └── page.svelte.e2e.ts        # End-to-end smoke test
+```
+
+The production build uses the SvelteKit static adapter. Set `BASE_PATH` when
+deploying below a path prefix, for example on a project site:
+
+```sh
+BASE_PATH=/thin-film-interference-sim npm run build
+```
+
+## Contributing
+
+1. Create a feature branch:
+
+   ```sh
+   git checkout -b feature/your-feature
+   ```
+
+2. Make and test your changes.
+3. Run the checks listed above.
+4. Open a pull request with a description of the change and any relevant
+   screenshots or test results.
+
+Bug reports and feature ideas are welcome in the
+[GitHub issue tracker](https://github.com/roganmoffat/thin-film-interference-sim/issues).
+
+## License
+
+No license has been specified for this repository yet.
