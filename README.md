@@ -1,9 +1,11 @@
 # Thin Film Interference Simulator
 
 An interactive 3D visualization of thin-film interference built with SvelteKit,
-Threlte, and Three.js. Adjust the optical properties of the surrounding
-media and film to explore how film thickness, wavelength, and refractive index
-affect the model.
+Threlte, and Three.js. Adjust the optical properties of the surrounding media
+and the film to explore how thickness, wavelength, and refractive index affect
+the simulation.
+
+The simulation is based on this video: : (Youtube Link)[https://www.youtube.com/watch?v=xjMjWtntm9k]
 
 ## Features
 
@@ -23,7 +25,7 @@ affect the model.
 
 ### Installation
 
-Clone the repository and install its dependencies:
+Clone the repository, then install its dependencies:
 
 ```sh
 git clone https://github.com/roganmoffat/thin-film-interference-sim.git
@@ -37,12 +39,15 @@ npm install
 npm run dev
 ```
 
-Open the local URL printed by Vite, usually
+Open the local URL printed by Vite, typically
 [`http://localhost:5173`](http://localhost:5173).
+
+You can also try the simulator online at
+[`roganmoffat.github.io/thin-film-interference-sim`](https://roganmoffat.github.io/thin-film-interference-sim/).
 
 ## Using the simulator
 
-Use the controls on the right side of the page to change:
+Use the controls on the right side of the page to adjust the following values:
 
 | Parameter | Description | Units |
 | --- | --- | --- |
@@ -53,7 +58,8 @@ Use the controls on the right side of the page to change:
 | `wavelength` | Wavelength of the displayed wave | nm |
 | `m_value` | Interference order shown on the film | — |
 
-Drag the scene to rotate the camera, and use the scroll wheel to zoom.
+Drag the scene to rotate the camera, pan to reposition it, and use the scroll
+wheel to zoom.
 
 ## Available commands
 
@@ -96,22 +102,3 @@ deploying below a path prefix, for example on a project site:
 BASE_PATH=/thin-film-interference-sim npm run build
 ```
 
-## Contributing
-
-1. Create a feature branch:
-
-   ```sh
-   git checkout -b feature/your-feature
-   ```
-
-2. Make and test your changes.
-3. Run the checks listed above.
-4. Open a pull request with a description of the change and any relevant
-   screenshots or test results.
-
-Bug reports and feature ideas are welcome in the
-[GitHub issue tracker](https://github.com/roganmoffat/thin-film-interference-sim/issues).
-
-## License
-
-No license has been specified for this repository yet.
